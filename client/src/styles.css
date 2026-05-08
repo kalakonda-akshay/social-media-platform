@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #e8f4ff;
+  background:
+    radial-gradient(circle at top left, rgba(53, 183, 255, 0.22), transparent 34rem),
+    linear-gradient(135deg, #06111f 0%, #08223c 48%, #06111f 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.glass {
+  border: 1px solid rgba(132, 194, 236, 0.18);
+  background: rgba(10, 28, 48, 0.76);
+  backdrop-filter: blur(18px);
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-sphere-sky to-sphere-mint px-4 py-2.5 font-bold text-sphere-ink shadow-glow transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 font-semibold text-slate-100 transition hover:bg-white/10;
+}
+
+.input {
+  @apply w-full rounded-lg border border-white/10 bg-sphere-ink/70 px-4 py-3 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-sphere-sky;
+}
+
+.toast {
+  background: #0b1f35 !important;
+  color: #e8f4ff !important;
+  border: 1px solid rgba(132, 194, 236, 0.2) !important;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
