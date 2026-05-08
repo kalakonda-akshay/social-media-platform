@@ -11,9 +11,10 @@ const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 
 const app = express();
 const clientDistPath = path.join(__dirname, "..", "..", "client", "dist");
+const clientOrigin = process.env.CLIENT_URL;
 
 app.use(cors({
-  origin: process.env.CLIENT_URL || "http://localhost:5173",
+  origin: !clientOrigin || clientOrigin === "*" ? true : clientOrigin,
   credentials: true
 }));
 app.use(express.json({ limit: "10mb" }));
