@@ -111,11 +111,16 @@ Notifications:
 
 ## Deployment Notes
 
-- Deploy `server/` to a Node host such as Render, Railway, or Fly.io.
-- Set `MONGO_URI`, `JWT_SECRET`, `PORT`, and `CLIENT_URL` on the server host.
-- Deploy `client/` to Vercel, Netlify, or another static host.
-- Set `VITE_API_URL` to your deployed API URL plus `/api`.
-- Set `VITE_SERVER_URL` to your deployed API root so uploaded media renders correctly.
+- Backend on Render: create a Blueprint from this GitHub repo or create a Web Service with root directory `server`, build command `npm install`, and start command `npm start`.
+- Backend environment variables:
+  - `MONGO_URI`
+  - `JWT_SECRET`
+  - `CLIENT_URL`
+- Frontend on Vercel: import this GitHub repo, set the project root directory to `client`, and deploy.
+- Frontend environment variables:
+  - `VITE_API_URL=https://your-render-api-url.onrender.com/api`
+  - `VITE_SERVER_URL=https://your-render-api-url.onrender.com`
+- After Vercel gives you a frontend URL, set the backend `CLIENT_URL` to that frontend URL and redeploy the backend.
 
 ## Notes
 
