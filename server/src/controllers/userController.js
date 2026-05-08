@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const Notification = require("../models/Notification");
+const fileUrl = require("../utils/fileUrl");
 
 const publicUserSelect = "-password";
 
@@ -47,7 +48,7 @@ const updateProfile = async (req, res, next) => {
       if (req.body[field] !== undefined) user[field] = req.body[field];
     });
 
-    if (req.file) user.avatar = `/uploads/${req.file.filename}`;
+    if (req.file) user.avatar = fileUrl(req.file);
     const updated = await user.save();
     res.json(updated.toSafeObject());
   } catch (error) {

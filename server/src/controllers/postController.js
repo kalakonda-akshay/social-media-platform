@@ -2,6 +2,7 @@ const Post = require("../models/Post");
 const Comment = require("../models/Comment");
 const User = require("../models/User");
 const Notification = require("../models/Notification");
+const fileUrl = require("../utils/fileUrl");
 
 const hydratePost = (query) =>
   query
@@ -32,7 +33,7 @@ const createPost = async (req, res, next) => {
     const post = await Post.create({
       author: req.user._id,
       text,
-      media: req.file ? `/uploads/${req.file.filename}` : "",
+      media: fileUrl(req.file),
       mediaType
     });
 

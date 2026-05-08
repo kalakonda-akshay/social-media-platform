@@ -12,7 +12,7 @@ api.interceptors.request.use((config) => {
 
 export const mediaUrl = (path) => {
   if (!path) return "";
-  if (path.startsWith("http")) return path;
+  if (path.startsWith("http") || path.startsWith("data:")) return path;
   return `${import.meta.env.VITE_SERVER_URL || ""}${path}`;
 };
 

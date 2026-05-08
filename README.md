@@ -111,6 +111,11 @@ Notifications:
 
 ## Deployment Notes
 
+- Vercel full-stack deployment: import this GitHub repo in Vercel using the repository root. The included root `vercel.json` builds `client`, serves the React app from `client/dist`, and sends `/api/*` requests to the Express app as a serverless function.
+- Required Vercel environment variables:
+  - `MONGO_URI`
+  - `JWT_SECRET`
+- On Vercel, uploaded images/videos are stored as MongoDB data URLs because serverless filesystems are temporary.
 - Single-service full-stack deployment on Render: create a Blueprint from this GitHub repo. The included `render.yaml` installs the backend, builds the React frontend, and serves the Vite build from Express in production.
 - Required Render environment variables:
   - `MONGO_URI`
