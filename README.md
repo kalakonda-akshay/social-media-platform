@@ -111,16 +111,14 @@ Notifications:
 
 ## Deployment Notes
 
-- Backend on Render: create a Blueprint from this GitHub repo or create a Web Service with root directory `server`, build command `npm install`, and start command `npm start`.
-- Backend environment variables:
+- Single-service full-stack deployment on Render: create a Blueprint from this GitHub repo. The included `render.yaml` installs the backend, builds the React frontend, and serves the Vite build from Express in production.
+- Required Render environment variables:
   - `MONGO_URI`
   - `JWT_SECRET`
-  - `CLIENT_URL`
-- Frontend on Vercel: import this GitHub repo, set the project root directory to `client`, and deploy.
-- Frontend environment variables:
-  - `VITE_API_URL=https://your-render-api-url.onrender.com/api`
-  - `VITE_SERVER_URL=https://your-render-api-url.onrender.com`
-- After Vercel gives you a frontend URL, set the backend `CLIENT_URL` to that frontend URL and redeploy the backend.
+- Optional split deployment:
+  - Backend on Render with root directory `server`, build command `npm install`, and start command `npm start`.
+  - Frontend on Vercel with root directory `client`.
+  - Set frontend `VITE_API_URL` and `VITE_SERVER_URL` to your deployed backend URL.
 
 ## Notes
 
